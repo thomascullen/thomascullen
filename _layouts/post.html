@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<h1>{{ page.title }}</h1>
+<h2>{{ page.summary }}.</h2>
+
+{{ content }}
+
+<div class="project_footer">
+  {% if page.project_url %}
+    <a href="{{page.project_url}}" target="_blank" class="check_it_out">Check it Out</a>
+  {% endif %}
+
+  <a href="/projects" class="back_to_projects">&#171; Back to all projects</a>
+</div>

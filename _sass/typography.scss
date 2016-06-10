@@ -1,0 +1,48 @@
+html, body {
+  font-size: 16px;
+  line-height: 1.8rem;
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+h1 {
+  color: $dark;
+  margin-top: 0;
+  font-size: 2.25rem;
+  margin-bottom: 20px;
+  line-height: 3.125rem;
+}
+
+h2 {
+  color: $grey;
+  margin-top: 0;
+  font-weight: 300;
+  font-size: 1.25rem;
+  margin-bottom: 80px;
+  line-height: 2.15rem;
+}
+
+h3 {
+  color: $grey;
+  margin-top: 0;
+}
+
+h4 {
+  color: $dark;
+  margin-top: 0;
+  font-weight: 400;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  line-height: 1.25rem;
+}
+
+p {
+  color: $copy;
+  margin-top: 0;
+  margin-bottom: 30px;
+}

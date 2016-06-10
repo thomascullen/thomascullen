@@ -1,0 +1,19 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
+    execjs (2.6.0)
+    jekyll-babel (1.1.0)
+      babel-transpiler
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  jekyll-babel
+
+BUNDLED WITH
+   1.11.2

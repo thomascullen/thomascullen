@@ -1,0 +1,19 @@
+---
+layout: default
+main_image: /assets/thomas.jpg
+permalink: /projects
+main_image: /assets/images/thomas.jpg
+---
+
+<div class="projects">
+  {% for post in site.posts %}
+  <div class="project_card">
+    <a href="{{ post.url }}" data-transition="{{ post.title }}">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.summary }}</p>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+
+<h2>See more of my projects on my <a href='/'>dribbble</a> and <a href='/'>github</a> profile.</h2>

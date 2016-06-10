@@ -1,0 +1,212 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+@import "mixins";
+@import "colours";
+@import "normalize";
+@import "typography";
+
+body {
+  padding-left: 40%;
+}
+
+.view {
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0 60px;
+  max-width: 800px;
+  overflow: hidden;
+  position: relative;
+}
+
+.content {
+  top: 0;
+  left: 0;
+  position: absolute;
+  padding: 140px 60px 0 60px;
+  transition: all 0.6s cubic-bezier(0.2, 0.3, 0.3, 1);
+}
+
+.content--next {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+
+.content--dismiss {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+}
+
+.main_image {
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  position: fixed;
+  background-size: cover;
+  background-color: $dark;
+  background-position: center;
+  box-shadow: 10px 0 20px white;
+
+  .social_links {
+    @include clearfix;
+    left: 0px;
+    bottom: 0px;
+    position: absolute;
+
+    li {
+      float: left;
+      list-style: none;
+      margin-right: 10px;
+    }
+
+    a {
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      background-position: 0 0;
+      background-size: 96px 48px;
+      background-image: url('/assets/images/social.png');
+
+      &.github {
+        background-position: 0 0;
+        &:hover { background-position: 0 -24px; }
+      }
+
+      &.dribbble {
+        background-position: -24px 0;
+        &:hover { background-position: -24px -24px; }
+      }
+
+      &.twitter {
+        background-position: -48px 0;
+        &:hover { background-position: -48px -24px; }
+      }
+
+      &.linkedin {
+        background-position: -72px 0;
+        &:hover { background-position: -72px -24px; }
+      }
+    }
+  }
+}
+
+nav {
+  top: 50px;
+  width: 100%;
+  right: 60px;
+  text-align: right;
+  position: absolute;
+  z-index: 2;
+
+  a {
+    color: $copy;
+    margin-left: 40px;
+    font-size: 0.95rem;
+    &:hover { color: $dark; text-decoration: none; }
+    &.current { color: $blue; }
+  }
+}
+
+// list of services
+.services {
+  @include clearfix;
+
+  .service {
+    width: 45%;
+    float: left;
+    margin-bottom: 10px;
+    line-height: 1.6rem;
+
+    h4 { font-weight: 600; }
+
+    &.service-ux_design h4 { color: $blue; }
+    &.service-ui_design h4 { color: $green; }
+    &.service-front_end h4 { color: $orange; }
+    &.service-ruby h4 { color: $red; }
+
+    p {
+      color: $grey;
+      font-size: 0.8rem;
+    }
+  }
+
+  .service:nth-child(odd) { margin-right: 10%; }
+}
+
+.projects {
+  @include clearfix;
+  padding-top: 30px;
+
+  .project_card {
+    width: 45%;
+    float: left;
+    height: 170px;
+    display: block;
+    perspective: 750px;
+    margin-bottom: 30px;
+
+    a {
+      width: 100%;
+      height: 100%;
+      padding: 25px;
+      display: block;
+      border-radius: 3px;
+      background-color: $grey;
+      transition: all 0.3s ease-out;
+      box-shadow: 0 1px 5px rgba($dark, 0.2),
+      0 20px 20px -15px rgba($dark, 0.25);
+
+      &:hover {
+        text-decoration: none;
+        box-shadow:
+        0 0 25px rgba(0, 0, 0, 0.1),
+        0 20px 20px -10px rgba($dark, 0.25),
+        0 40px 40px -15px rgba($dark, 0.25);
+      }
+
+      h3 {
+        color: white;
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+        pointer-events: none;
+      }
+
+      p {
+        color: white;
+        font-weight: 300;
+        font-size: 0.9rem;
+        line-height: 1.5rem;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .project_card:nth-child(odd) { margin-right: 5%; }
+}
+
+.project_footer {
+  padding-top: 30px;
+}
+
+.check_it_out {
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  background: $blue;
+  padding: 10px 25px;
+  border-radius: 3px;
+  margin-right: 20px;
+  box-shadow: 0 1px 4px rgba($dark, 0.25);
+
+  &:hover {
+    text-decoration: none;
+    background: darken($blue, 5);
+  }
+}
+
+.back_to_projects {
+  color: $grey;
+}
