@@ -6,12 +6,12 @@
   <body>
 
     <div class="main_image" style="background-image: url({{ page.main_image }})">
-      <ul class="social_links">
-        <li><a href='https://github.com/thomascullen' target="_blank" class="github"></a></li>
-        <li><a href='https://dribbble.com/thomascullen' target="_blank" class="dribbble"></a></li>
-        <li><a href='https://twitter.com/thomasauros' target="_blank" class="twitter"></a></li>
-        <li><a href='https://ie.linkedin.com/in/thomascullen92' target="_blank" class="linkedin"></a></li>
-      </ul>
+    </div>
+
+    <div class="nav_toggle">
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
 
     <div class="view">
@@ -22,7 +22,7 @@
         <a href="/" {% if page.url == '/' %}class='current'{% endif %} data-transition="home">About</a>
         <a href="/projects" {% if current[1] == 'projects' %}class='current'{% endif %} data-transition="projects">Projects</a>
         <a href="mailto:hello@thomascullen.io">Contact</a>
-        <a href="/">Résumé</a>
+        <a href="https://www.dropbox.com/s/rz3rex7azrn8s47/resume.pdf?dl=0" target="_blank">Résumé</a>
       </nav>
 
 
@@ -30,6 +30,14 @@
         {{ content }}
       </div>
     </div>
+
+    <ul class="social_links">
+      <li><a href='https://github.com/thomascullen' target="_blank" class="github"></a></li>
+      <li><a href='https://dribbble.com/thomascullen' target="_blank" class="dribbble"></a></li>
+      <li><a href='https://twitter.com/thomasauros' target="_blank" class="twitter"></a></li>
+      <li><a href='https://ie.linkedin.com/in/thomascullen92' target="_blank" class="linkedin"></a></li>
+    </ul>
+
 
     <script src="/assets/js/jquery.js"></script>
     <script type="text/javascript" charset="utf-8" src="/assets/js/velocity.js"></script>

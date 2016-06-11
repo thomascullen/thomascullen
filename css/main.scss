@@ -13,15 +13,17 @@ body {
 }
 
 .view {
+  @include clearfix;
   height: 100vh;
   margin: 0 auto;
   padding: 0 60px;
   max-width: 800px;
-  overflow: hidden;
+  overflow-x: hidden;
   position: relative;
 }
 
 .content {
+  @include clearfix;
   top: 0;
   left: 0;
   position: absolute;
@@ -43,53 +45,29 @@ body {
   top: 0;
   left: 0;
   width: 40%;
+  z-index: 99;
   height: 100%;
   position: fixed;
   background-size: cover;
   background-color: $dark;
   background-position: center;
   box-shadow: 10px 0 20px white;
+}
 
-  .social_links {
-    @include clearfix;
-    left: 0px;
-    bottom: 0px;
-    position: absolute;
+.nav_toggle {
+  top: 20px;
+  left: 20px;
+  width: 22px;
+  z-index: 110;
+  display: none;
+  position: absolute;
 
-    li {
-      float: left;
-      list-style: none;
-      margin-right: 10px;
-    }
-
-    a {
-      width: 24px;
-      height: 24px;
-      display: inline-block;
-      background-position: 0 0;
-      background-size: 96px 48px;
-      background-image: url('/assets/images/social.png');
-
-      &.github {
-        background-position: 0 0;
-        &:hover { background-position: 0 -24px; }
-      }
-
-      &.dribbble {
-        background-position: -24px 0;
-        &:hover { background-position: -24px -24px; }
-      }
-
-      &.twitter {
-        background-position: -48px 0;
-        &:hover { background-position: -48px -24px; }
-      }
-
-      &.linkedin {
-        background-position: -72px 0;
-        &:hover { background-position: -72px -24px; }
-      }
-    }
+  div {
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    margin-bottom: 4px;
+    transition: 0.3s ease-out;
   }
 }
 
@@ -97,9 +75,9 @@ nav {
   top: 50px;
   width: 100%;
   right: 60px;
+  z-index: 99;
   text-align: right;
   position: absolute;
-  z-index: 2;
 
   a {
     color: $copy;
@@ -123,7 +101,7 @@ nav {
     h4 { font-weight: 600; }
 
     &.service-ux_design h4 { color: $blue; }
-    &.service-ui_design h4 { color: $green; }
+    &.service-ui_design h4 { color: $purple; }
     &.service-front_end h4 { color: $orange; }
     &.service-ruby h4 { color: $red; }
 
@@ -153,11 +131,13 @@ nav {
       height: 100%;
       padding: 25px;
       display: block;
-      border-radius: 3px;
-      background-color: $grey;
+      /* Rectangle 1: */
+      border-radius: 5px;
       transition: all 0.3s ease-out;
-      box-shadow: 0 1px 5px rgba($dark, 0.2),
-      0 20px 20px -15px rgba($dark, 0.25);
+      background-image: linear-gradient(-180deg, #69728B 0%, #505872 100%);
+      box-shadow: 0px 1px 15px 0px rgba(52,58,75,0.10), 0px 2px 10px 0px rgba(139,145,169,0.36);
+      // box-shadow: 0 1px 5px rgba($dark, 0.2),
+      // 0 20px 20px -15px rgba($dark, 0.25);
 
       &:hover {
         text-decoration: none;
@@ -177,7 +157,7 @@ nav {
       p {
         color: white;
         font-weight: 300;
-        font-size: 0.9rem;
+        font-size: 1rem;
         line-height: 1.5rem;
         pointer-events: none;
       }
@@ -187,8 +167,17 @@ nav {
   .project_card:nth-child(odd) { margin-right: 5%; }
 }
 
+.project_content {
+  img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 30px;
+  }
+}
+
 .project_footer {
   padding-top: 30px;
+  padding-bottom: 80px;
 }
 
 .check_it_out {
@@ -209,4 +198,123 @@ nav {
 
 .back_to_projects {
   color: $grey;
+}
+
+.social_links {
+  @include clearfix;
+  left: 0px;
+  bottom: 0px;
+  z-index: 100;
+  position: absolute;
+
+  li {
+    float: left;
+    list-style: none;
+    margin-right: 10px;
+  }
+
+  a {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-position: 0 0;
+    background-size: 96px 48px;
+    background-image: url('/assets/images/social.png');
+
+    &.github {
+      background-position: 0 0;
+      &:hover { background-position: 0 -24px; }
+    }
+
+    &.dribbble {
+      background-position: -24px 0;
+      &:hover { background-position: -24px -24px; }
+    }
+
+    &.twitter {
+      background-position: -48px 0;
+      &:hover { background-position: -48px -24px; }
+    }
+
+    &.linkedin {
+      background-position: -72px 0;
+      &:hover { background-position: -72px -24px; }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  html, body {
+    font-size: 13px;
+    padding-left: 0;
+  }
+
+  .view {
+    padding: 0;
+    overflow: visible;
+
+    .content { padding: 50px 30px 0 30px; }
+  }
+
+  .nav_toggle {
+    display: block;
+  }
+
+  nav {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    position: fixed;
+    padding-top: 100px;
+    background: rgba($dark, 0.9);
+    transition: all 0.5s ease-out;
+
+    opacity: 0;
+    visibility: hidden;
+
+    a {
+      display: block;
+      font-size: 20px;
+      margin: 0 0 30px 0;
+      text-align: center;
+      color: rgba(white, 0.8);
+      &:active { color: white; }
+    }
+  }
+
+  .main_image {
+    width: 100%;
+    height: 30vh;
+    display: block;
+    position: relative;
+  }
+
+  .social_links {
+    display: none;
+  }
+
+  .projects {
+    .project_card {
+      width: 100%;
+      margin: 0 0 30px 0;
+    }
+  }
+
+  .back_to_projects {
+    display: block;
+    margin-top: 30px;
+  }
+}
+
+body.nav_open {
+  .nav_toggle div:nth-child(1) { transform: rotate(45deg) translate(2px, 6px); }
+  .nav_toggle div:nth-child(2) { opacity: 0; }
+  .nav_toggle div:nth-child(3) { transform: rotate(-45deg) translate(2px, -6px); }
+
+  nav {
+    opacity: 1;
+    visibility: visible;
+  }
 }
